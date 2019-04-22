@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CardList from '../components/CardList';
-// import { robots } from '../robots';
+import { robots_alt } from '../robots';
 import SearchBox from '../components/SearchBox';
 import './App.css';
 import Scroll from '../components/Scroll';
@@ -11,7 +11,8 @@ import { setSearchField, requestRobots } from '../actions';
 const mapStateToProps = (state) => {
     return {
         searchField: state.searchRobots.searchField,
-        robots: state.requestRobots.robots,
+        robots: robots_alt,
+        // robots: state.requestRobots.robots,
         isPending: state.requestRobots.isPending,
         error: state.requestRobots.error
     };
@@ -37,11 +38,11 @@ class App extends Component {
         })
 
         if (robots.length === 0) {
-            
+
         }
 
         return isPending ?
-            <h1>Loading</h1>:
+            <h1 style={{textAlign: 'center'}}>Loading</h1>:
         (
             <div className='tc' style={{ flex: 1 }}>
                 <h1 className='f1'>RoboFriends</h1>
